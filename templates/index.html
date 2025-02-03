@@ -17,6 +17,7 @@
         <div class="post_btns">
             <a class="delete_btn" href="/delete/{{ dict['id'] }}">delete post</a>
             <a class="update_btn" href="/update/{{ dict['id'] }}">update post</a>
+            <a class="like_btn" href="/likes/{{ dict['id'] }}">likes {{ dict['likes'] }}</a>
         </div>
     </div>
     {% endfor %}
