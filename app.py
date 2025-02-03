@@ -22,6 +22,13 @@ def fetch_post_by_id(post_id):
         if post['id'] == post_id:
             return post
 
+def free_id_key(list_of_dictionaries):
+    list_id= []
+    for dict in list_of_dictionaries:
+        list_id.append(dict['id'])
+    for free_id in range(1, max(list_id)+2): # +2 to generate a new id if no one is free
+        if free_id not in list_id:
+            return free_id
 
 
 @app.route('/')
@@ -38,7 +45,7 @@ def add():
         title = request.form.get('title')
         content = request.form.get('content')
         blog_posts = load_json_file()
-        id_new_post = len(blog_posts) + 1
+        id_new_post = free_id_key(blog_posts)
         new_dict = {'id': id_new_post, 'author': author, 'title': title, 'content': content}
         blog_posts += [new_dict]
         write_json(blog_posts)
