@@ -38,6 +38,10 @@ a {
     background-color: orange;
 }
 
+.like_btn {
+    background-color: gray;
+}
+
 .add_post a {
     background-color: blue;
 }
