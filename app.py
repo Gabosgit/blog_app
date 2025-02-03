@@ -76,7 +76,8 @@ def update(post_id):
         author = request.form.get('author')
         title = request.form.get('title')
         content = request.form.get('content')
-        updated_dict = {'id': post_id, 'author': author, 'title': title, 'content': content}
+        likes = post['likes']
+        updated_dict = {'id': post_id, 'author': author, 'title': title, 'content': content, 'likes': likes}
         blog_posts = load_json_file()
         post_index_in_list = blog_posts.index(post)
         blog_posts[post_index_in_list] = updated_dict
@@ -85,6 +86,19 @@ def update(post_id):
     # Else, it's a GET request
     # So display the update.html page
     return render_template('update.html', post=post)
+
+
+@app.route('/likes/<int:post_id>')
+def likes(post_id):
+    blog_posts = load_json_file()
+    post = fetch_post_by_id(post_id)
+    post_index_in_list = blog_posts.index(post)
+    post_likes = post['likes'] + 1
+    post['likes'] = post_likes
+    blog_posts = load_json_file()
+    blog_posts[post_index_in_list] = post
+    write_json(blog_posts)
+    return redirect('/')
 
 
 if __name__ == '__main__':
