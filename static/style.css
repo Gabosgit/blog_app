@@ -58,3 +58,13 @@ a:hover, a:active {
   background-color: yellow;
   color: black;
 }
+
+.error {
+    text-align: center;
+    background-color: red;
+    border-radius: 20px;
+    padding: 10px;
+    h1 {
+        color: white;
+    }
+}
