@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "author": "John Doe",
+        "title": "First Post",
+        "content": "This is my first post.",
+        "likes": 9
+    },
+    {
+        "id": 2,
+        "author": "Jane Doe",
+        "title": "Second Post",
+        "content": "This is another post.",
+        "likes": 10
+    },
+    {
+        "id": 3,
+        "author": "NUEVO",
+        "title": "testing update with likes 0",
+        "content": "Test updating post 3  with like 0 key added",
+        "likes": 7
+    },
+    {
+        "id": 4,
+        "author": "cuarto",
+        "title": "Add post 4",
+        "content": "Testing free_id_key to generate id keys",
+        "likes": 8
+    }
+]
